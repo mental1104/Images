@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    networks:
+      - shared_network
+    env_file:
+      - .env
+    volumes:
+      - /var/lib/postgresql/data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+networks:
+  shared_network:
+    external: true
