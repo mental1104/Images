@@ -35,7 +35,7 @@ COPY package/requirements.txt /tmp/
 RUN pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple -r /tmp/requirements.txt && rm -f /tmp/requirements.txt
 
 # 安装其他库
-RUN yum update -y
+RUN yum update -y && yum install graphviz xdg-utils
 
 COPY package/go1.20.5.linux-amd64.tar.gz /tmp/
 RUN tar -C /usr/local -xzf /tmp/go1.20.5.linux-amd64.tar.gz
